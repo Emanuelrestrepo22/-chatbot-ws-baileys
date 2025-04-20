@@ -6,7 +6,7 @@
     "scripts": {
         "prestart": "npx eslint . --no-ignore",
         "pre-copy": "cd .. && npm run  copy.lib base-baileys-json",
-        "start": "node app.js"
+        "start": "node server.js & node app.js"
     },
     "keywords": [],
     "dependencies": {
@@ -17,8 +17,10 @@
         "@bot-whatsapp/provider": "latest",
         "@whiskeysockets/baileys": "6.5.0",
         "cache-manager": "5.2.4",
+        "express": "^5.1.0",
         "mime-types": "2.1.35",
         "openai": "^4.95.1",
+        "qrcode": "^1.5.4",
         "wa-sticker-formatter": "4.4.4"
     },
     "devDependencies": {

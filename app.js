@@ -2,7 +2,7 @@
 const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
-QRPortalWeb({ port: process.env.PORT || 3000 }) // 🚨 agregar esto
+const QRPortalWeb = require('@bot-whatsapp/portal') // ✅ Importación corregida
 
 // 🧔🏻 Subflujo: Hablar con Emanuel (respuesta cálida y profesional)
 const flowHablarConEmanuel = addKeyword(['1', 'hablar con emanuel', 'emanuel', 'persona', 'humano'])
@@ -36,11 +36,12 @@ const flowCotizacionMudanza = addKeyword(['mudanza', 'flete', 'mini mudanza', 'm
         '📍 *¿Desde dónde y hasta dónde* es el traslado? (incluí calle y localidad)',
         '📆 *¿Qué día precisás el servicio?*',
         '🕒 *¿En qué franja horaria* preferís coordinar? (mañana, tarde o noche)',
+        '🏢 *¿Los muebles deben bajarse o subirse por escaleras o ascensores?*',
         '',
         '💬 Indicame si necesitás este adicional así lo incluyo en el presupuesto final.',
         '🔙 Escribí *menu* para volver al menú principal.'
     ])
-    /** .addAnswer([
+    .addAnswer([
         '📌 *Información adicional sobre el servicio:*',
         'El presupuesto base es *puerta a puerta*, es decir, *no incluye ayudantes o peones*.',
         '🛠️ Si necesitás ayuda para subir o bajar muebles, podés agregar ayudantes:',
@@ -49,7 +50,7 @@ const flowCotizacionMudanza = addKeyword(['mudanza', 'flete', 'mini mudanza', 'm
         '',
         'Este precio se adiciona al servicio básico. Si solicitás x1 ayudante, puede ser el mismo conductor (no llegarán dos personas).'
     ])
-*/
+
 // ✈️ Subflujo: Traslados al aeropuerto
 const flowTrasladoAeropuerto = addKeyword([
     'aeropuerto', 'aep', 'eze', 'traslado aeropuerto', 'retiro aeropuerto', 'transfer aeropuerto', 'transfer'
@@ -124,7 +125,7 @@ const main = async () => {
         database: adapterDB,
     })
 
-    QRPortalWeb()
+    QRPortalWeb({ port: process.env.PORT || 3000 }) // ✅ QR expuesto para Railway
 }
 
 main()
