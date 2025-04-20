@@ -125,7 +125,7 @@ const main = async () => {
         database: adapterDB,
     })
 
-    QRPortalWeb({ port: process.env.PORT || 3000 }) // ✅ QR expuesto para Railway
+   // QRPortalWeb({ port: process.env.PORT || 3000 }) // ✅ QR expuesto para Railway
 }
 
 main()
