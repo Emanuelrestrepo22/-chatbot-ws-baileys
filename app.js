@@ -1,10 +1,11 @@
 // Archivo: app.js
+const express = require('express') // ✅ Nuevo: Express para el servidor QR
+const fs = require('fs')           // ✅ Nuevo: FileSystem para leer el QR
 const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
-const QRPortalWeb = require('@bot-whatsapp/portal') // ✅ Importación corregida
 
-// 🧔🏻 Subflujo: Hablar con Emanuel (respuesta cálida y profesional)
+// 🧔🏻 Subflujo: Hablar con Emanuel
 const flowHablarConEmanuel = addKeyword(['1', 'hablar con emanuel', 'emanuel', 'persona', 'humano'])
     .addAnswer([
         '🧔🏻 ¡Hola! Gracias por tu mensaje 😊',
@@ -13,7 +14,7 @@ const flowHablarConEmanuel = addKeyword(['1', 'hablar con emanuel', 'emanuel', '
         '¡Gracias por tu paciencia y por comunicarte con *Resmor Transportes*!'
     ])
 
-// 🚛 Subflujo: Información general de Resmor Transportes
+// 🚛 Servicios
 const flowResmor = addKeyword(['2', 'resmor', 'info', 'servicios'])
     .addAnswer([
         '🚛 *Resmor Transportes* te ofrece los siguientes servicios:',
@@ -25,7 +26,7 @@ const flowResmor = addKeyword(['2', 'resmor', 'info', 'servicios'])
         '🔙 Escribí *menu* para volver al menú principal.'
     ])
 
-// 📦 Subflujo: Cotización para fletes y mudanzas
+// 📦 Cotización para mudanzas
 const flowCotizacionMudanza = addKeyword(['mudanza', 'flete', 'mini mudanza', 'minimudanza', 'traslado de muebles'])
     .addAnswer([
         '🚚 ¿Querés una cotización para *mudanza, flete o mini flete*? ¡Perfecto! 💪',
@@ -51,7 +52,7 @@ const flowCotizacionMudanza = addKeyword(['mudanza', 'flete', 'mini mudanza', 'm
         'Este precio se adiciona al servicio básico. Si solicitás x1 ayudante, puede ser el mismo conductor (no llegarán dos personas).'
     ])
 
-// ✈️ Subflujo: Traslados al aeropuerto
+// ✈️ Traslado al aeropuerto
 const flowTrasladoAeropuerto = addKeyword([
     'aeropuerto', 'aep', 'eze', 'traslado aeropuerto', 'retiro aeropuerto', 'transfer aeropuerto', 'transfer'
 ])
@@ -82,7 +83,7 @@ const flowTrasladoAeropuerto = addKeyword([
         '- Más de 4 valijas: $60.000 ARS o 50 USD'
     ])
 
-// 🧭 Subflujo: Volver al menú principal
+// 🔄 Volver al menú
 const flowVolverAlMenu = addKeyword(['menu', 'inicio', 'volver'])
     .addAnswer('🔝 Volvemos al menú principal...')
     .addAnswer([
@@ -91,7 +92,7 @@ const flowVolverAlMenu = addKeyword(['menu', 'inicio', 'volver'])
         '\n📩 Respondé con el número de opción que deseas.'
     ])
 
-// 💬 Flujo principal
+// 🧠 Flujo principal
 const flowPrincipal = addKeyword(['hola', 'buenas', 'ole', 'alo'])
     .addAnswer('🙌 ¡Hola! Soy el asistente virtual de Emanuel (Resmor Transportes).')
     .addAnswer('Actualmente estoy ocupado, pero puedo ayudarte con lo siguiente:')
@@ -106,7 +107,7 @@ const flowPrincipal = addKeyword(['hola', 'buenas', 'ole', 'alo'])
         return fallBack('❌ Opción no válida. Escribí *1* o *2* para continuar.')
     })
 
-// 🚀 Setup del bot
+// 🚀 Setup del bot y servidor QR
 const main = async () => {
     const adapterDB = new JsonFileAdapter()
     const adapterFlow = createFlow([
@@ -125,7 +126,23 @@ const main = async () => {
         database: adapterDB,
     })
 
-   // QRPortalWeb({ port: process.env.PORT || 3000 }) // ✅ QR expuesto para Railway
+    // 🔗 Servidor Express para exponer el QR por web
+    const app = express()
+    const PORT = process.env.PORT || 3000
+
+    app.get('/', (req, res) => {
+        const qrPath = './bot.qr.png'
+        if (fs.existsSync(qrPath)) {
+            res.writeHead(200, { 'Content-Type': 'image/png' })
+            fs.createReadStream(qrPath).pipe(res)
+        } else {
+            res.send('⚠️ El QR aún no está disponible. Por favor recargá en unos segundos.')
+        }
+    })
+
+    app.listen(PORT, () => {
+        console.log(`🌐 Servidor QR activo en el puerto ${PORT}`)
+    })
 }
 
 main()
