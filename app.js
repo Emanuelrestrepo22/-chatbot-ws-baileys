@@ -1,6 +1,7 @@
 // Archivo: app.js
-const express = require('express') // ✅ Nuevo: Express para el servidor QR
-const fs = require('fs')           // ✅ Nuevo: FileSystem para leer el QR
+const express = require('express')
+const fs = require('fs')
+const debug = require('debug')('bot') // ✅ Logger controlado
 const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
@@ -41,15 +42,6 @@ const flowCotizacionMudanza = addKeyword(['mudanza', 'flete', 'mini mudanza', 'm
         '',
         '💬 Indicame si necesitás este adicional así lo incluyo en el presupuesto final.',
         '🔙 Escribí *menu* para volver al menú principal.'
-    ])
-    .addAnswer([
-        '📌 *Información adicional sobre el servicio:*',
-        'El presupuesto base es *puerta a puerta*, es decir, *no incluye ayudantes o peones*.',
-        '🛠️ Si necesitás ayuda para subir o bajar muebles, podés agregar ayudantes:',
-        '▪️ x1 ayudante (puede ser el conductor): $25.000 ARS por hora.',
-        '▪️ x2 ayudantes (conductor + 1 chico extra): $45.000 ARS por hora.',
-        '',
-        'Este precio se adiciona al servicio básico. Si solicitás x1 ayudante, puede ser el mismo conductor (no llegarán dos personas).'
     ])
 
 // ✈️ Traslado al aeropuerto
@@ -120,13 +112,25 @@ const main = async () => {
     ])
     const adapterProvider = createProvider(BaileysProvider)
 
-    createBot({
+    const bot = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     })
 
-    // 🔗 Servidor Express para exponer el QR por web
+    // 🎯 Captura de eventos para debug controlado
+    const sock = await adapterProvider.init()
+
+    sock.ev.on('chats.set', (data) => {
+        debug(`📥 Se cargaron ${data.chats.length} chats.`)
+        debug(`📌 Ejemplo: ${data.chats[0]?.name || 'Sin nombre'}`)
+    })
+
+    sock.ev.on('messages.upsert', () => {
+        debug(`✉️ Nuevo mensaje entrante.`)
+    })
+
+    // 🔗 Servidor Express para mostrar QR
     const app = express()
     const PORT = process.env.PORT || 3000
 
@@ -141,8 +145,13 @@ const main = async () => {
     })
 
     app.listen(PORT, () => {
-        console.log(`🌐 Servidor QR activo en el puerto ${PORT}`)
+        debug(`🌐 Servidor QR activo en el puerto ${PORT}`)
     })
 }
+
+// 🧯 Manejo de errores no capturados
+process.on('uncaughtException', (err) => {
+    console.error("💥 Error no capturado:", err.message)
+})
 
 main()
