@@ -1,0 +1,33 @@
+git init# 📦 Dependencias
+node_modules/
+
+# 🤖 Sesiones de bot
+bot_sessions/
+base-baileys-json/
+
+# 🧪 Archivos temporales y logs
+*.log
+*.pid
+*.sock
+
+# 🔐 Archivos sensibles
+.env
+*.env
+
+# 🔧 Configs del editor
+.vscode/
+.idea/
+
+# 📸 Archivos temporales o de prueba
+bot.qr.png
+
+# 📦 Archivos de build o dist
+dist/
+coverage/
+
+# 🚫 Sistema operativo
+.DS_Store
+Thumbs.db
+node_modules
+node_modules
+node_modules

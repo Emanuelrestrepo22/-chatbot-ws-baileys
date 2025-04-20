@@ -1,0 +1,343 @@
+[
+  {
+    "ref": "8a1664f8-a821-4ee0-8f7b-97cc327d8a42",
+    "keyword": "499fd47422c1ae40215793c3ba06e55c",
+    "answer": "Hola",
+    "options": {},
+    "from": "5491124016976",
+    "refSerialize": "c22e4066d61d81721def9b25d8a397e8"
+  },
+  {
+    "ref": "ans_b65bcb94-d60b-4153-8403-630c2f7cd231",
+    "keyword": "key_7a7e2265-2aa3-4f6d-8658-75952a18ed64",
+    "answer": "🙌 ¡Hola! Soy el asistente virtual de Emanuel (Resmor Transportes).",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "15d0c8d394df777b7f62d393bb8e8cb6",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_4dd6a145-b679-43af-bfcd-e5e0fc6c49a6",
+    "keyword": "ans_b65bcb94-d60b-4153-8403-630c2f7cd231",
+    "answer": "Actualmente estoy ocupado, pero puedo ayudarte con lo siguiente:",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "180288b7978c478ba59cb4c202008dcc",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_62979026-202f-43e1-a6b8-7a0deb80a6cb",
+    "keyword": "ans_4dd6a145-b679-43af-bfcd-e5e0fc6c49a6",
+    "answer": "1️⃣ *Hablar con Emanuel directamente*\n2️⃣ *Conocer nuestros servicios de transporte*\n\n📩 Respondé con el número de opción que deseas.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5130c5de14c86bbdb0e233bb31f0546f",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ae1c8347-7a24-4b91-8e63-d9d233bf2824",
+    "keyword": "5130c5de14c86bbdb0e233bb31f0546f",
+    "answer": "2",
+    "options": {},
+    "from": "5491124016976",
+    "refSerialize": "2294c3d08b53a6effa5df696a15b9d30"
+  },
+  {
+    "ref": "ans_03e752b8-65e4-4e90-827e-7d88f2033938",
+    "keyword": "key_6559054a-baf2-4c1f-bc74-2055516bd389",
+    "answer": "🚛 *Resmor Transportes* te ofrece los siguientes servicios:\n✈️ Traslados ejecutivos al aeropuerto\n🚚 Fletes y mudanzas con cuidado profesional\n🗓️ Coordiná tu servicio con anticipación para mejor disponibilidad\n\n📩 Respondé con *mudanza* o *aeropuerto* según el servicio que necesitás.\n🔙 Escribí *menu* para volver al menú principal.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "e41ec164033297ba2073110ca7ca0970",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "a1b7aced-9d3f-4307-9650-9c17a79368f1",
+    "keyword": "e41ec164033297ba2073110ca7ca0970",
+    "answer": "Mudanza",
+    "options": {},
+    "from": "5491124016976",
+    "refSerialize": "30abe56552f766bd80853c11bb0dfd35"
+  },
+  {
+    "ref": "ans_ff9be6ec-6fe9-4266-aeb4-cc152dd6ecd6",
+    "keyword": "key_e67315d9-36ba-4f60-b222-9e453cec58ee",
+    "answer": "🚚 ¿Querés una cotización para *mudanza, flete o mini flete*? ¡Perfecto! 💪\nAntes de pasarte el presupuesto necesito algunos datos 👇",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "46ea294d61d5668b53d1120c20a3b4d7",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_0352526c-7bdf-4725-a4e1-9be0c6cc592b",
+    "keyword": "ans_ff9be6ec-6fe9-4266-aeb4-cc152dd6ecd6",
+    "answer": "📦 *¿Qué muebles o artículos necesitás trasladar?* (ej: cama, heladera, cajas, TV)\n📍 *¿Desde dónde y hasta dónde* es el traslado? (incluí calle y localidad)\n📆 *¿Qué día precisás el servicio?*\n🕒 *¿En qué franja horaria* preferís coordinar? (mañana, tarde o noche)\n\n💬 Indicame si necesitás este adicional así lo incluyo en el presupuesto final.\n🔙 Escribí *menu* para volver al menú principal.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "58f1b5d275be8b95a3788e15755fcdec",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_821b5e51-8eb7-48bc-805b-ccf0d12ef2c3",
+    "keyword": "ans_0352526c-7bdf-4725-a4e1-9be0c6cc592b",
+    "answer": "📌 *Información adicional sobre el servicio:*\nEl presupuesto base es *puerta a puerta*, es decir, *no incluye ayudantes o peones*.\n🛠️ Si necesitás ayuda para subir o bajar muebles, podés agregar ayudantes:\n▪️ x1 ayudante (puede ser el conductor): $25.000 ARS por hora.\n▪️ x2 ayudantes (conductor + 1 chico extra): $45.000 ARS por hora.\n\nEste precio se adiciona al servicio básico. Si solicitás x1 ayudante, puede ser el mismo conductor (no llegarán dos personas).",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "b0ea2f451ccc58d67bb6dc199b604120",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "8d860550-64bb-43df-a3ad-fd9e2ba4060e",
+    "keyword": "b0ea2f451ccc58d67bb6dc199b604120",
+    "answer": "Menú",
+    "options": {},
+    "from": "5491124016976",
+    "refSerialize": "24f993908d01def8edb99c3d92f53f73"
+  },
+  {
+    "ref": "ans_aee17c78-4ea2-4f80-bd7a-93baf64fd15f",
+    "keyword": "key_903affdb-aabf-481f-aea1-06452f728835",
+    "answer": "🧔🏻 ¡Hola! Gracias por tu mensaje 😊\nEn este momento estoy ocupado atendiendo otras consultas, pero voy a responderte personalmente en breve.\n📲 Dejá tu mensaje y apenas esté disponible me comunico con vos.\n¡Gracias por tu paciencia y por comunicarte con *Resmor Transportes*!",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "9792b42c0d023f3607745aae6a8ade7b",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "4c7eca9f-c5a2-451d-a7a3-f156b45f5e00",
+    "keyword": "9792b42c0d023f3607745aae6a8ade7b",
+    "answer": "Hola",
+    "options": {},
+    "from": "5491124016976",
+    "refSerialize": "c22e4066d61d81721def9b25d8a397e8"
+  },
+  {
+    "ref": "ans_b65bcb94-d60b-4153-8403-630c2f7cd231",
+    "keyword": "key_7a7e2265-2aa3-4f6d-8658-75952a18ed64",
+    "answer": "🙌 ¡Hola! Soy el asistente virtual de Emanuel (Resmor Transportes).",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "15d0c8d394df777b7f62d393bb8e8cb6",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_4dd6a145-b679-43af-bfcd-e5e0fc6c49a6",
+    "keyword": "ans_b65bcb94-d60b-4153-8403-630c2f7cd231",
+    "answer": "Actualmente estoy ocupado, pero puedo ayudarte con lo siguiente:",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "180288b7978c478ba59cb4c202008dcc",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_62979026-202f-43e1-a6b8-7a0deb80a6cb",
+    "keyword": "ans_4dd6a145-b679-43af-bfcd-e5e0fc6c49a6",
+    "answer": "1️⃣ *Hablar con Emanuel directamente*\n2️⃣ *Conocer nuestros servicios de transporte*\n\n📩 Respondé con el número de opción que deseas.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5130c5de14c86bbdb0e233bb31f0546f",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ce70a122-5dc1-463a-b017-8ae111e37022",
+    "keyword": "5130c5de14c86bbdb0e233bb31f0546f",
+    "answer": "2",
+    "options": {},
+    "from": "5491124016976",
+    "refSerialize": "2294c3d08b53a6effa5df696a15b9d30"
+  },
+  {
+    "ref": "ans_03e752b8-65e4-4e90-827e-7d88f2033938",
+    "keyword": "key_6559054a-baf2-4c1f-bc74-2055516bd389",
+    "answer": "🚛 *Resmor Transportes* te ofrece los siguientes servicios:\n✈️ Traslados ejecutivos al aeropuerto\n🚚 Fletes y mudanzas con cuidado profesional\n🗓️ Coordiná tu servicio con anticipación para mejor disponibilidad\n\n📩 Respondé con *mudanza* o *aeropuerto* según el servicio que necesitás.\n🔙 Escribí *menu* para volver al menú principal.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "e41ec164033297ba2073110ca7ca0970",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "e0a3ae3d-4930-4783-b43c-201fdcf7db0a",
+    "keyword": "e41ec164033297ba2073110ca7ca0970",
+    "answer": "Mudanza",
+    "options": {},
+    "from": "5491124016976",
+    "refSerialize": "30abe56552f766bd80853c11bb0dfd35"
+  },
+  {
+    "ref": "ans_ff9be6ec-6fe9-4266-aeb4-cc152dd6ecd6",
+    "keyword": "key_e67315d9-36ba-4f60-b222-9e453cec58ee",
+    "answer": "🚚 ¿Querés una cotización para *mudanza, flete o mini flete*? ¡Perfecto! 💪\nAntes de pasarte el presupuesto necesito algunos datos 👇",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "46ea294d61d5668b53d1120c20a3b4d7",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_0352526c-7bdf-4725-a4e1-9be0c6cc592b",
+    "keyword": "ans_ff9be6ec-6fe9-4266-aeb4-cc152dd6ecd6",
+    "answer": "📦 *¿Qué muebles o artículos necesitás trasladar?* (ej: cama, heladera, cajas, TV)\n📍 *¿Desde dónde y hasta dónde* es el traslado? (incluí calle y localidad)\n📆 *¿Qué día precisás el servicio?*\n🕒 *¿En qué franja horaria* preferís coordinar? (mañana, tarde o noche)\n\n💬 Indicame si necesitás este adicional así lo incluyo en el presupuesto final.\n🔙 Escribí *menu* para volver al menú principal.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "58f1b5d275be8b95a3788e15755fcdec",
+    "from": "5491124016976"
+  },
+  {
+    "ref": "ans_821b5e51-8eb7-48bc-805b-ccf0d12ef2c3",
+    "keyword": "ans_0352526c-7bdf-4725-a4e1-9be0c6cc592b",
+    "answer": "📌 *Información adicional sobre el servicio:*\nEl presupuesto base es *puerta a puerta*, es decir, *no incluye ayudantes o peones*.\n🛠️ Si necesitás ayuda para subir o bajar muebles, podés agregar ayudantes:\n▪️ x1 ayudante (puede ser el conductor): $25.000 ARS por hora.\n▪️ x2 ayudantes (conductor + 1 chico extra): $45.000 ARS por hora.\n\nEste precio se adiciona al servicio básico. Si solicitás x1 ayudante, puede ser el mismo conductor (no llegarán dos personas).",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "b0ea2f451ccc58d67bb6dc199b604120",
+    "from": "5491124016976"
+  }
+]
