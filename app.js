@@ -5,23 +5,21 @@ const { createBot, createProvider, createFlow, addKeyword } = require('@bot-what
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-// --- Validación para evitar crash si el archivo JSON está vacío o corrupto
-const checkJSONCorruption = (filePath) => {
-    try {
-        const data = fs.readFileSync(filePath, 'utf8')
-        if (!data || data.trim() === '') {
-            console.warn(`⚠️ El archivo ${filePath} está vacío. Se eliminará para evitar errores.`)
+// ✅ Función para detectar archivo corrupto
+const checkJSONCorruption = () => {
+    const filePath = './auth_session.json'
+    if (fs.existsSync(filePath)) {
+        try {
+            const content = fs.readFileSync(filePath, 'utf8')
+            JSON.parse(content)
+        } catch (err) {
+            console.warn('⚠️ El archivo ./auth_session.json está corrupto. Se eliminará.')
             fs.unlinkSync(filePath)
-        } else {
-            JSON.parse(data) // Intenta parsear el JSON, si falla se pasa al catch
         }
-    } catch (err) {
-        console.warn(`⚠️ El archivo ${filePath} está corrupto. Se eliminará.`)
-        fs.unlinkSync(filePath)
     }
 }
 
-// --- Flujos del chatbot ---
+// 🧔🏻 Flujos del bot
 const flowHablarConEmanuel = addKeyword(['1', 'emanuel', 'persona', 'humano'])
     .addAnswer([
         '🧔🏻 ¡Hola! Gracias por tu mensaje 😊',
@@ -86,10 +84,9 @@ const flowPrincipal = addKeyword(['hola', 'buenas', 'ole'])
         return fallBack('❌ Opción inválida. Escribí 1 o 2.')
     })
 
-// --- Main bot y servidor Express ---
+// 🚀 Setup principal
 const main = async () => {
-    const sessionPath = './auth_session.json'
-    checkJSONCorruption(sessionPath)
+    checkJSONCorruption()
 
     const adapterDB = new JsonFileAdapter()
     const adapterFlow = createFlow([
@@ -102,7 +99,7 @@ const main = async () => {
     ])
 
     const adapterProvider = await createProvider(BaileysProvider, {
-        name: 'auth_session' // carpeta que contiene la sesión activa
+        name: 'auth_session'
     })
 
     await createBot({
@@ -111,7 +108,6 @@ const main = async () => {
         database: adapterDB,
     })
 
-    // Servidor Express para visualizar el QR
     const app = express()
     const PORT = process.env.PORT || 3000
     const qrPath = './auth_session.qr.png'
@@ -121,7 +117,7 @@ const main = async () => {
             res.writeHead(200, { 'Content-Type': 'image/png' })
             fs.createReadStream(qrPath).pipe(res)
         } else {
-            res.status(404).send('⚠️ El QR no está disponible aún.')
+            res.status(404).send('⚠️ El QR aún no está disponible.')
         }
     })
 
