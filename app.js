@@ -24,9 +24,7 @@ const flowResmor = addKeyword(['2', 'resmor', 'info', 'servicios'])
     ])
 
 const flowCotizacionMudanza = addKeyword(['mudanza', 'flete'])
-    .addAnswer([
-        '🚚 ¿Querés cotización? Necesito estos datos:'
-    ])
+    .addAnswer(['🚚 ¿Querés cotización? Necesito estos datos:'])
     .addAnswer([
         '📦 ¿Qué artículos trasladás?',
         '📍 ¿Desde dónde y hacia dónde?',
@@ -37,10 +35,7 @@ const flowCotizacionMudanza = addKeyword(['mudanza', 'flete'])
     ])
 
 const flowTrasladoAeropuerto = addKeyword(['aeropuerto', 'eze', 'aep'])
-    .addAnswer([
-        '✈️ ¡Gracias por tu consulta!',
-        'Necesito algunos datos:'
-    ])
+    .addAnswer(['✈️ ¡Gracias por tu consulta!', 'Necesito algunos datos:'])
     .addAnswer([
         '📍 Dirección de origen/destino',
         '📆 Fecha y hora',
@@ -83,7 +78,7 @@ const main = async () => {
     ])
 
     const adapterProvider = createProvider(BaileysProvider, {
-        name: 'auth_session' // carpeta que contiene la sesión activa
+        name: 'auth_session'
     })
 
     await createBot({
@@ -92,7 +87,6 @@ const main = async () => {
         database: adapterDB,
     })
 
-    // Servidor Express para visualizar el QR
     const app = express()
     const PORT = process.env.PORT || 3000
     const qrPath = './auth_session.qr.png'
@@ -110,5 +104,10 @@ const main = async () => {
         console.log(`🌐 Servidor QR activo en puerto ${PORT}`)
     })
 }
+
+// Manejo de errores global
+process.on('uncaughtException', (err) => {
+    console.error('💥 Error no capturado:', err.message)
+})
 
 main()
