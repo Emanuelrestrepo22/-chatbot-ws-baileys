@@ -5,7 +5,7 @@ const { createBot, createProvider, createFlow, addKeyword } = require('@bot-what
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-// ✅ Función para detectar archivo corrupto
+// ✅ Función para detectar archivo corrupto de sesión y eliminarlo de forma segura
 const checkJSONCorruption = () => {
     const filePath = './auth_session.json'
     if (fs.existsSync(filePath)) {
@@ -13,8 +13,13 @@ const checkJSONCorruption = () => {
             const content = fs.readFileSync(filePath, 'utf8')
             JSON.parse(content)
         } catch (err) {
-            console.warn('⚠️ El archivo ./auth_session.json está corrupto. Se eliminará.')
-            fs.unlinkSync(filePath)
+            console.warn('⚠️ El archivo ./auth_session.json está corrupto.')
+            try {
+                fs.unlinkSync(filePath)
+                console.log('🗑️ Archivo eliminado correctamente.')
+            } catch (unlinkErr) {
+                console.error('❌ Error al eliminar el archivo (ya no existe):', unlinkErr.message)
+            }
         }
     }
 }
