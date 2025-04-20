@@ -1,8 +1,8 @@
 // Archivo: app.js
 const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
-const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
+QRPortalWeb({ port: process.env.PORT || 3000 }) // 🚨 agregar esto
 
 // 🧔🏻 Subflujo: Hablar con Emanuel (respuesta cálida y profesional)
 const flowHablarConEmanuel = addKeyword(['1', 'hablar con emanuel', 'emanuel', 'persona', 'humano'])
