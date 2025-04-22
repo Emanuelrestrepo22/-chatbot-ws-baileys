@@ -25,11 +25,11 @@ const checkJSONCorruption = () => {
 }
 
 // 🧔🏻 Flujos del bot
-const flowHablarConEmanuel = addKeyword(['1', 'emanuel', 'persona', 'humano'])
+const flowHablarConEmanuel = addKeyword(['1', 'emanuel'])
     .addAnswer([
-        '🧔🏻 ¡Hola! Gracias por tu mensaje 😊',
-        'Estoy ocupado, pero te respondo personalmente en breve.',
-        'Dejá tu mensaje y te contacto.',
+        '¡Hola! Soy ResBot el asistente virtual de Emanuel, Gracias por tu mensaje 😊',
+        'El esta ocupado, pero El te repondera personalmente en breve.',
+        'Dejá tu mensaje y en breve te contactamos.',
         '¡Gracias por elegir *Resmor Transportes*!'
     ])
 
@@ -55,7 +55,7 @@ const flowCotizacionMudanza = addKeyword(['mudanza', 'flete'])
         '🔙 Escribí *menu* para volver al inicio.'
     ])
 
-const flowTrasladoAeropuerto = addKeyword(['aeropuerto', 'eze', 'aep'])
+const flowTrasladoAeropuerto = addKeyword(['aeropuerto', 'eze', 'aep', 'aero'])
     .addAnswer([
         '✈️ ¡Gracias por tu consulta!',
         'Necesito algunos datos:'
@@ -76,17 +76,17 @@ const flowVolverAlMenu = addKeyword(['menu', 'inicio', 'volver'])
     ])
 
 const flowPrincipal = addKeyword(['hola', 'buenas', 'ole'])
-    .addAnswer('🙌 ¡Hola! Soy el asistente virtual de Resmor Transportes.')
-    .addAnswer('Puedo ayudarte con lo siguiente:')
+    .addAnswer('🙌 ¡Hola! Soy ResBot, el asistente virtual de Emanuel Restrepo.')
+    .addAnswer('En estos estamos ocupados momentos me encuentro ocupado, puedes esperar(en breve me comunico con vos) o Puedo ayudarte con lo siguiente:')
     .addAnswer([
-        '1️⃣ Hablar con Emanuel',
-        '2️⃣ Conocer nuestros servicios',
+        'Marca 1️⃣ o escribe *Emanuel* para Hablar con Emanuel',
+        'Marca 2️⃣ o escribe *transporte*, *flete*, *mudanza*, o *inf* para Conocer nuestros servicios',
         '📩 Respondé con 1 o 2.'
     ], { capture: true }, async (ctx, { fallBack, gotoFlow }) => {
         const msg = ctx.body.trim()
         if (msg === '1') return gotoFlow(flowHablarConEmanuel)
         if (msg === '2') return gotoFlow(flowResmor)
-        return fallBack('❌ Opción inválida. Escribí 1 o 2.')
+        return fallBack('❌ Opción inválida. Escribí 1 o 2 en Breve responderemos tu consulta.')
     })
 
 // 🚀 Setup principal
